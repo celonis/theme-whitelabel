@@ -67,6 +67,15 @@
 
                                                 <!-- Display the schedule/runtime. -->
                                                 {% include 'notices/timeliness' %}
+
+                                                {% if notice.components != empty %}
+                                                    <!-- This notice affected specific components, display them. -->
+                                                    <ul class="list-affected-components">
+                                                    {% for component in notice.components %}
+                                                            <li><span class="label label-default">{{ component.name }}</span></li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% endif %}
                                             </div>
 
                                             <dl>
